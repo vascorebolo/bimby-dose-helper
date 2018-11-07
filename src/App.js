@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Input from './components/Input/Input'
 
 class App extends Component {
   state = {
@@ -8,15 +9,11 @@ class App extends Component {
     calc: 0,
   }
 
-  updateBase(event) {
-    this.setState({base: event.target.value})
-  }
+  updateBase = (event) => this.setState({base: event.target.value})
 
-  updateQuantity(event) {
-    this.setState({quantity: event.target.value})
-  }
+  updateQuantity = (event) => this.setState({quantity: event.target.value})
 
-  updateValue(event) {
+  updateValue = (event) => {
     this.setState({
       value: event.target.value,
       calc: (event.target.value * this.state.quantity) / this.state.base
@@ -26,21 +23,12 @@ class App extends Component {
   render() {
     return (
       <div>
-        <div>
-            <label>Quantidade Base</label><br />
-            <input type="number" onBlur={ this.updateBase.bind(this) } />
-        </div>
-        <br />
-        <div>
-            <label>Quantidade Pretendida</label><br />
-            <input type="number" onBlur={ this.updateQuantity.bind(this) }/>
-        </div>
-        <br />
-        <div>
-            <label>Valor a Calcular</label><br />
-            <input type="number" onChange={ this.updateValue.bind(this) }/>
-        </div>
-        <br />
+        <Input label='Quantidade Base' inputProps={{type: 'number', onBlur: this.updateBase}} />
+
+        <Input label='Quantidade Pretendida' inputProps={{type: 'number', onBlur: this.updateQuantity}} />
+
+        <Input label='Valor a Calcular' inputProps={{type: 'number', onChange: this.updateValue}} />
+        
         <div>
           <p>{ `Resultado: ${(this.state.calc).toFixed(2)}` }</p>
         </div>
