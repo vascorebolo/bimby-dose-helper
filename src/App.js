@@ -26,8 +26,11 @@ class App extends Component {
   render() {
     return (
       <AppWrapper>
-        <div style={{textAlign: 'center'}}>
-          <img src={bimbyLogo} alt='bimby-logo' />
+        <div>
+          <CenterImage>
+            <img src={bimbyLogo} alt='bimby-logo' />
+          </CenterImage>
+
           <ColumnsDiv>
             <Input label='Quantidade Base' inputProps={{type: 'number', onBlur: this.updateBase}} />
             <Input label='Quantidade Pretendida' inputProps={{type: 'number', onBlur: this.updateQuantity}} />
@@ -50,15 +53,31 @@ const AppWrapper = styled.div`
   min-height: 100vh;
 `
 
+const CenterImage = styled.div`
+  align-items: center;
+  display: flex;
+  justify-content: center;
+`
+
 const ColumnsDiv = styled.div`
   align-items: center;
   display: flex;
   padding: 20px;
 
+  @media (max-width: 800px) {
+    flex-direction: column;
+    padding: 0 20px;
+  }
+
   > * {
     flex: 1;
     padding-left: 20px;
     padding-right: 20px;
+
+    @media (max-width: 800px) {
+      width: 100%;
+      padding: 10px;
+    }
   }
 `
 
