@@ -25,17 +25,22 @@ Input.displayName = 'Input'
 const InputWrapper = styled.div`
     display: flex;
     flex-direction: column;
-    max-width: 400px;
-    padding: 20px;
+    flex: 1;
 
     label {
+      color: #248c2f;
+      font-weight: 500;
       margin-bottom: 10px;
     }
 
     input {
+      border: 1px solid #888;
+      border-radius: 5px;
+      color: #444;
       font-size: 25px;
-      height: 40px;
-      line-height: 38px;
+      height: 35px;
+      line-height: 100%;
+      padding: 5px 8px;
     }
 `
 

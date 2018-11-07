@@ -1,6 +1,6 @@
 # Bimby Dose Helper
 
-A simple solution for a simple problem. So many times I was caught on calculating quantities of Bimby ingredients when I want to reduce the overall recipe, doing the rule of three... This is a rule of three calculator specially designed for Bimby ingredients 😇
+A simple solution for a simple problem. So many times I was caught on calculating quantities of ingredients, for Bimby (Thermomix) recipes, when I want to reduce the overall dose. This is a rule of three calculator specially designed for Bimby ingredients 😇
 
 It's in portuguese, so I can share it with my my family 😆
 
