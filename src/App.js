@@ -30,7 +30,8 @@ class App extends Component {
       <AppWrapper>
         <div>
           <CenterImage>
-            <img src={bimbyLogo} alt='bimby-logo' />
+            {/* <img src={bimbyLogo} alt='bimby-logo' /> */}
+            <h3>Bimby 1/2 Dose</h3>
           </CenterImage>
 
           <ColumnsDiv>
@@ -63,6 +64,11 @@ const AppWrapper = styled.div`
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+
+  h3 {
+    color: #248c2f;
+    font-size: 35px;
+  }
 `
 
 const CenterImage = styled.div`
