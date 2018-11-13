@@ -16,12 +16,30 @@ class App extends Component {
 
   updateQuantity = (event) => this.setState({quantity: event.target.value})
 
+  round5(calc) {
+    if (calc < 5 && calc > 0) {
+        calc = 5
+    } else if (calc % 5 !== 0) {
+      const remainder = calc % 10
+
+      calc = remainder > 5
+        ? calc + (10 - remainder)
+        : calc - remainder
+    }
+
+    return calc
+  }
+
   updateValue = (event) => {
-    const calc = ((Math.round((event.target.value * this.state.quantity) / this.state.base)) * 2) / 2
+    let calc = ((Math.round((event.target.value * this.state.quantity) / this.state.base)) * 2) / 2
+
+    calc = isNaN(calc)
+      ? 0
+      : this.round5(calc)
 
     this.setState({
       value: event.target.value,
-      calc: isNaN(calc) ? 0 : calc
+      calc: calc
     })
   }
 
