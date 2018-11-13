@@ -41,6 +41,9 @@ const InputWrapper = styled.div`
       height: 35px;
       line-height: 100%;
       padding: 5px 8px;
+      ::placeholder {
+        color: #ccc;
+      }
     }
 `
 

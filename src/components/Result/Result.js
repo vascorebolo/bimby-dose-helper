@@ -5,7 +5,7 @@ import styled from 'styled-components'
 const Result = ({ result }) => {
   return (
     <StyledResult>
-      { `Resultado: ${result}` }
+      { `Resultado: ${result}g` }
     </StyledResult>
   )
 }

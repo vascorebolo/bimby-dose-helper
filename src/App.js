@@ -17,9 +17,11 @@ class App extends Component {
   updateQuantity = (event) => this.setState({quantity: event.target.value})
 
   updateValue = (event) => {
+    const calc = ((Math.round((event.target.value * this.state.quantity) / this.state.base)) * 2) / 2
+
     this.setState({
       value: event.target.value,
-      calc: ((event.target.value * this.state.quantity) / this.state.base).toFixed(2)
+      calc: isNaN(calc) ? 0 : calc
     })
   }
 
@@ -32,12 +34,22 @@ class App extends Component {
           </CenterImage>
 
           <ColumnsDiv>
-            <Input label='Quantidade Base' inputProps={{type: 'number', onBlur: this.updateBase}} />
-            <Input label='Quantidade Pretendida' inputProps={{type: 'number', onBlur: this.updateQuantity}} />
+            <Input
+              label='Quantidade Base (g)'
+              inputProps={{type: 'number', onBlur: this.updateBase, placeholder: 'ex: 500'}}
+            />
+
+            <Input
+              label='Quantidade Pretendida (g)'
+              inputProps={{type: 'number', onBlur: this.updateQuantity, placeholder: 'ex: 200'}}
+            />
           </ColumnsDiv>
 
           <ColumnsDiv>
-            <Input label='Valor a Calcular' inputProps={{type: 'number', onChange: this.updateValue}} />
+            <Input
+              label='Valor a Calcular (g)'
+              inputProps={{type: 'number', onChange: this.updateValue, placeholder: 'ex: 100'}}
+            />
             <Result result={this.state.calc} />
           </ColumnsDiv>
         </div>
